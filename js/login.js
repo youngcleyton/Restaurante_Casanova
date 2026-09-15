@@ -14,7 +14,7 @@ const Store = {
 const SESSION_KEY = 'restaurante_admin_session';
 
 /* Se já tem sessão ativa, vai direto para o painel */
-if(sessionStorage.getItem(SESSION_KEY) === 'ok'){
+if(localStorage.getItem(SESSION_KEY) === 'ok'){
   window.location.href = 'restauranteadm.html';
 }
 

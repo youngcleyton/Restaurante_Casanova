@@ -4,7 +4,7 @@
 
 const SESSION_KEY = 'restaurante_admin_session';
 
-if(sessionStorage.getItem(SESSION_KEY) !== 'ok'){
+if(localStorage.getItem(SESSION_KEY) !== 'ok'){
   window.location.replace('login.html');
 }
 

@@ -4,19 +4,19 @@
 
 const CONFIG = {
   empresa: {
-    nome: "Sabor de Quelimane",
+    nome: "Restaurante Digital",
     slogan: "Comida caseira à porta de casa",
     tipo: "Restaurante",
     cidade: "Quelimane",
     pais: "Moçambique",
     endereco: "Av. Marginal, Quelimane, Moçambique",
     horario: "Segunda a Domingo — 10h00 às 22h00",
-    email: "pedidos@sabordequelimane.co.mz",
-    telefone: "258XXXXXXXXX",
+    email: "sabordequelimane@gmail.com",
+    telefone: "258871632577",
     logo: "assets/images/logo.png"
   },
 
-  whatsapp: "258XXXXXXXXX",
+  whatsapp: "258871632577",
 
   // ============ PRATOS ============
   // Aqui defines o menu. Cada prato tem nome, preço, categoria e descrição.
@@ -63,11 +63,10 @@ const CONFIG = {
 
   mensagemWhatsApp: "Olá, Restaurante! Gostaria de fazer um pedido.",
 
-  // ============ SUPABASE ============
-  // ⚠️ Substituir pelas credenciais reais depois
+    // ============ SUPABASE ============
   supabase: {
-    url: "https://SEU-PROJETO.supabase.co",
-    key: "sb_publishable_XXXXX"
+    url: "https://cazvzrotdtndcmjdjgvy.supabase.co",
+    key: "sb_publishable_kg2lLW51Rw3Xl_octDqaOw_8B-XXnHz"
   }
 };
 
