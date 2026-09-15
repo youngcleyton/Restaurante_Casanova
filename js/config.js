@@ -23,12 +23,12 @@ const CONFIG = {
   pratos: {
     frango_zambeziana: 450,
     matapa: 380,
-    camarão_grelhado: 750,
-    peixe_corvina: 650,
+    camarão_grelhado: 250,
+    peixe_corvina: 200,
     xima_carne: 300,
-    arroz_feijao: 180,
-    frango_piri: 420,
-    bife_molho: 550
+    arroz_feijao: 150,
+    frango_e_batatas: 350,
+    bife_molho: 500
   },
 
   // ============ ENTREGA ============
@@ -37,10 +37,10 @@ const CONFIG = {
     gratisAcimaDe: 1000,   // pedido acima de 1000 MT → entrega grátis
     retirada: 0,           // retirar no restaurante = grátis
     zonas: [
-      { nome: "Centro de Quelimane", valor: 80,  tempo: "20-30 min" },
-      { nome: "Arredores",           valor: 50,  tempo: "15-25 min" },
-      { nome: "Bairros próximos",    valor: 100, tempo: "30-40 min" },
-      { nome: "Periferia",           valor: 150, tempo: "40-60 min" }
+      { nome: "Centro de Quelimane", valor: 50,  tempo: "20-30 min" },
+      { nome: "Arredores",           valor: 30,  tempo: "15-25 min" },
+      { nome: "Bairros distantes",    valor: 60, tempo: "30-40 min" },
+      { nome: "Periferia",           valor: 80, tempo: "40-60 min" }
     ],
     premium: {
       ativo: true,
