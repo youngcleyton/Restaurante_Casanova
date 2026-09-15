@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>Painel — Sabor de Quelimane</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/admin.css"/>
+</head>
+<body>
+
+<div class="admin-app" id="adminApp" style="visibility:hidden">
+
+  <header class="admin-header">
+    <div class="brand-mini">🍽️ SABOR DE QUELIMANE · ADMIN</div>
+    <div style="display:flex;gap:10px">
+      <button id="resetBtn" class="btn-logout" style="background:rgba(255,210,0,.15);color:#FFD200">🔄 Recarregar menu</button>
+      <button id="logoutBtn" class="btn-logout">Sair</button>
+    </div>
+  </header>
+
+  <div class="welcome-banner">
+    <span>👋</span>
+    <div>
+      <b>Bem-vindo ao sistema!</b>
+      <small id="welcomeDate"></small>
+    </div>
+  </div>
+
+  <main class="admin-content">
+
+    <!-- ============ SWITCHES ============ -->
+    <section class="panel">
+      <h2>🍽️ Controlo de Disponibilidade</h2>
+      <p class="hint">Liga ou desliga cada prato do menu</p>
+      <div id="switchList" class="switch-list"></div>
+    </section>
+
+    <!-- ============ PEDIDOS PENDENTES ============ -->
+    <section class="panel">
+      <div class="panel-head">
+        <h2>⏳ Pedidos Pendentes</h2>
+        <span class="count-badge" id="pendentesCount">0</span>
+      </div>
+      <p class="hint">Confirma se o pedido foi entregue ou cancela</p>
+      <div id="pendentesList" class="receipts-container">
+        <p class="empty">Sem pedidos pendentes.</p>
+      </div>
+    </section>
+
+    <!-- ============ EXTRATO COMPLETO ============ -->
+    <section class="panel panel-extrato">
+      <div class="panel-head">
+        <h2>📊 Extrato Completo de Pedidos</h2>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <span class="count-badge green" id="totalRegistos">0 registos</span>
+          <button id="imprimirExtrato" class="btn-imprimir">🖨️ Extrato Completo</button>
+          <button id="imprimirMini" class="btn-imprimir">🖨️ Recibos Mini</button>
+          <button id="fecharDia" class="btn-fechar-dia">📅 Fechar o Dia</button>
+          <button id="apagarTudo" class="btn-apagar-tudo">🗑️ Apagar Tudo</button>
+        </div>
+      </div>
+
+      <div class="filtros">
+        <button class="filtro-btn active" data-filtro="todos">📋 Todos</button>
+        <button class="filtro-btn" data-filtro="PENDENTE">⏳ Pendentes</button>
+        <button class="filtro-btn" data-filtro="PREPARACAO">🔧 Em preparação</button>
+        <button class="filtro-btn" data-filtro="CAMINHO">🛵 A caminho</button>
+        <button class="filtro-btn" data-filtro="ENTREGUE">✅ Entregues</button>
+        <button class="filtro-btn" data-filtro="CANCELADO">❌ Cancelados</button>
+      </div>
+
+      <div class="table-excel-wrap">
+        <table class="table-excel" id="tabelaPedidos">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>ID</th>
+              <th>Data</th>
+              <th>Cliente</th>
+              <th>Telefone</th>
+              <th>Pedido</th>
+              <th>Qtd</th>
+              <th>Modo</th>
+              <th>Zona</th>
+              <th>Taxa</th>
+              <th>Total</th>
+              <th>Estado</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaPedidosBody">
+            <tr><td colspan="13" class="empty">Sem pedidos.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tabela-total-rodape">
+        <span>TOTAL GERAL:</span>
+        <b id="totalGeral">0 MT</b>
+      </div>
+    </section>
+
+  </main>
+ </div>
+
+        <script src="js/config.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.6.0/jspdf.plugin.autotable.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="js/admin.js"></script>
+</body>
+</html>

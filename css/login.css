@@ -1,0 +1,65 @@
+/* ============================================================
+   LOGIN — SABOR DE QUELIMANE
+   ============================================================ */
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Inter',sans-serif;
+  min-height:100vh;
+  background:
+    radial-gradient(600px 500px at 20% 20%, rgba(232,119,34,.25), transparent 60%),
+    radial-gradient(600px 500px at 80% 80%, rgba(139,0,0,.2), transparent 60%),
+    linear-gradient(180deg,#1A0F08,#0D0604);
+  color:#fff;
+}
+.login-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.login-box{
+  width:min(420px,100%);padding:40px 34px;border-radius:22px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(232,119,34,.15);
+  backdrop-filter:blur(20px);box-shadow:0 30px 70px rgba(0,0,0,.6);
+  text-align:center;
+  animation:appear .5s ease;
+}
+@keyframes appear{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+.login-logo{
+  width:80px;height:80px;margin:0 auto 14px;
+  filter:drop-shadow(0 0 20px rgba(232,119,34,.5));
+}
+.login-logo svg{width:100%;height:100%}
+
+.login-box h1{
+  font-family:'Poppins',sans-serif;
+  font-size:20px;letter-spacing:1px;margin-bottom:6px;
+  font-weight:800;
+}
+.laranja{color:#E87722;text-shadow:0 0 10px rgba(232,119,34,.5)}
+.vermelho{color:#FF5A5A;text-shadow:0 0 10px rgba(255,90,90,.5)}
+.login-sub{color:#B8A595;font-size:13px;margin-bottom:30px}
+
+.field{text-align:left;margin-bottom:16px}
+.field label{
+  display:block;font-size:11px;letter-spacing:1px;
+  color:#B8A595;margin-bottom:8px;text-transform:uppercase;font-weight:700;
+}
+.field input{
+  width:100%;padding:14px 16px;border-radius:12px;
+  background:rgba(0,0,0,.4);border:1px solid rgba(232,119,34,.2);
+  color:#fff;outline:none;font-size:15px;transition:.2s;
+}
+.field input:focus{border-color:#E87722;box-shadow:0 0 0 3px rgba(232,119,34,.15)}
+
+.btn-login{
+  width:100%;padding:15px;border-radius:12px;font-weight:700;
+  background:linear-gradient(135deg,#E87722,#8B0000);color:#fff;
+  letter-spacing:1px;transition:.2s;margin-top:10px;font-size:14px;
+  border:none;cursor:pointer;
+}
+.btn-login:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(232,119,34,.45)}
+
+.login-error{color:#FF5A5A;font-size:13px;margin-top:14px;min-height:18px;font-weight:600}
+
+.back-link{
+  display:inline-block;margin-top:24px;font-size:12px;
+  color:#B8A595;text-decoration:none;transition:.2s;
+}
+.back-link:hover{color:#E87722}
