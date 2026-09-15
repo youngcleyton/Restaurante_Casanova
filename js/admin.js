@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 /* ---------- LOGOUT ---------- */
 $('#logoutBtn')?.addEventListener('click', () => {
-  sessionStorage.removeItem(SESSION_KEY);
+  localStorage.removeItem(SESSION_KEY);      // ← SUBSTITUI POR ISTO
   window.location.replace('login.html');
 });
 

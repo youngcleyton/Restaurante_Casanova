@@ -38,7 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const adminPass = cfg.admin?.pass || 'sabor2025';
 
     if(user === adminUser && pass === adminPass){
-      sessionStorage.setItem(SESSION_KEY, 'ok');
+      // ✅ Guarda com localStorage (persiste entre páginas)
+      localStorage.setItem(SESSION_KEY, 'ok');
+      console.log('✅ Sessão gravada. Redirecionando...');
       window.location.href = 'restauranteadm.html';
     } else {
       $('#loginError').textContent = '❌ Credenciais inválidas. Tenta novamente.';
