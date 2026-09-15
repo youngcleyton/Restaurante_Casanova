@@ -156,6 +156,7 @@ const PRATOS_PADRAO = [
     unidade: "MT",
     categoria: "pratos",
     disponivel: true,
+    icon: "🥩",
     foto: "assets/images/pratos/bife-molho.jpg",
     desc: "Bife de vaca com molho especial da casa"
   }
