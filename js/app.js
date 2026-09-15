@@ -70,28 +70,37 @@ hamburger?.addEventListener('click', () => {
 navLinks?.querySelectorAll('a').forEach(a => a.addEventListener('click', fecharMenu));
 document.querySelector('.nav-overlay')?.addEventListener('click', fecharMenu);
 
-/* ---------- MENU DE PRATOS ---------- */
 function renderMenu(){
   const grid = $('#menuGrid');
   if(!grid) return;
   const pratos = getPratos();
 
-  grid.innerHTML = pratos.map(p => `
-    <div class="menu-item ${p.disponivel ? '' : 'unavailable'}" data-id="${p.id}">
-      <div class="mi-head">
-        <div class="mi-icon">${p.icon || '🍽️'}</div>
-        <span class="status ${p.disponivel ? 'ok' : 'off'}">
-          ● ${p.disponivel ? 'DISPONÍVEL' : 'ESGOTADO'}
-        </span>
+  grid.innerHTML = pratos.map(p => {
+    // Se tem foto, mostra a foto. Se não, mostra o emoji.
+    const imagemHTML = p.foto
+      ? `<img src="${p.foto}" alt="${p.nome}" loading="lazy"
+             onerror="this.parentElement.innerHTML='<span style=\\'font-size:64px\\'>${p.icon || '🍽️'}</span>'"/>`
+      : `<span style="font-size:64px">${p.icon || '🍽️'}</span>`;
+
+    return `
+      <div class="menu-item ${p.disponivel ? '' : 'unavailable'}" data-id="${p.id}">
+        <div class="mi-foto">
+          ${imagemHTML}
+          <span class="status-badge ${p.disponivel ? 'ok' : 'off'}">
+            ● ${p.disponivel ? 'DISPONÍVEL' : 'ESGOTADO'}
+          </span>
+        </div>
+        <div class="mi-body">
+          <div class="mi-name">${p.nome}</div>
+          <div class="mi-desc">${p.desc || ''}</div>
+          <div class="mi-price">${p.preco} ${p.unidade}</div>
+          <button class="btn btn-primary mi-btn" ${p.disponivel ? '' : 'disabled'}>
+            ${p.disponivel ? 'ENCOMENDAR' : 'ESGOTADO'}
+          </button>
+        </div>
       </div>
-      <div class="mi-name">${p.nome}</div>
-      <div class="mi-desc">${p.desc || ''}</div>
-      <div class="mi-price">${p.preco} ${p.unidade}</div>
-      <button class="btn btn-primary mi-btn" ${p.disponivel ? '' : 'disabled'}>
-        ${p.disponivel ? 'ENCOMENDAR' : 'ESGOTADO'}
-      </button>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 
   grid.querySelectorAll('.menu-item:not(.unavailable) .mi-btn').forEach(btn => {
     btn.addEventListener('click', e => {
@@ -467,24 +476,25 @@ $('#confirmOrder')?.addEventListener('click', () => {
 
 /* ---------- GALERIA ---------- */
 const galeriaItems = [
-  { cat:'restaurante', emoji:'🍽️', label:'Sala principal' },
-  { cat:'restaurante', emoji:'👨‍🍳', label:'Cozinha aberta' },
-  { cat:'pratos',      emoji:'🍗', label:'Frango Zambeziana' },
-  { cat:'pratos',      emoji:'🦐', label:'Camarão grelhado' },
-  { cat:'pratos',      emoji:'🐟', label:'Peixe fresco' },
-  { cat:'atendimento', emoji:'👨‍💼', label:'Atendimento' },
-  { cat:'atendimento', emoji:'🎉', label:'Eventos privados' },
-  { cat:'restaurante', emoji:'🌙', label:'Ambiente noturno' }
+  { cat:'restaurante', foto:'assets/images/galeria/sala.jpg',       label:'Sala principal' },
+  { cat:'restaurante', foto:'assets/images/galeria/cozinha.jpg',    label:'Cozinha' },
+  { cat:'pratos',      foto:'assets/images/pratos/frango-zambeziana.jpg', label:'Frango Zambeziana' },
+  { cat:'pratos',      foto:'assets/images/pratos/camarao-grelhado.jpg',  label:'Camarão grelhado' },
+  { cat:'pratos',      foto:'assets/images/pratos/peixe-corvina.jpg',     label:'Peixe fresco' },
+  { cat:'atendimento', foto:'assets/images/galeria/atendimento.jpg', label:'Atendimento' },
+  { cat:'atendimento', foto:'assets/images/galeria/ambiente.jpg',   label:'Ambiente noturno' },
+  { cat:'restaurante', foto:'assets/images/galeria/sala.jpg',       label:'Espaço interior' }
 ];
 
 function renderGaleria(){
   const g = $('#gallery');
   if(!g) return;
-  g.innerHTML = galeriaItems.map((it,i) => `
+
+  g.innerHTML = galeriaItems.map((it, i) => `
     <div class="gal-item" data-cat="${it.cat}" data-i="${i}">
-      <span class="emoji">${it.emoji}</span>
-      <b>${it.label}</b>
-      <small style="opacity:.6;margin-top:6px;font-size:11px">Substituir por foto real</small>
+      <img src="${it.foto}" alt="${it.label}" loading="lazy"
+           onerror="this.parentElement.innerHTML='<span class=\\'emoji\\'>🍽️</span><b>${it.label}</b>'"/>
+      <div class="gal-overlay"><b>${it.label}</b></div>
     </div>
   `).join('');
 

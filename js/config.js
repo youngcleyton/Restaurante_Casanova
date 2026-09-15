@@ -79,7 +79,8 @@ const PRATOS_PADRAO = [
     unidade: "MT",
     categoria: "pratos",
     disponivel: true,
-    icon: "🍗",
+    icon: "🍗",   // fallback se a foto falhar
+    foto: "assets/images/pratos/frango-zambeziana.jpg",
     desc: "Frango grelhado com molho de coco e piri-piri"
   },
   {
@@ -90,16 +91,18 @@ const PRATOS_PADRAO = [
     categoria: "pratos",
     disponivel: true,
     icon: "🥬",
+    foto: "assets/images/pratos/matapa.jpg",
     desc: "Folhas de mandioqueira com amendoim e xima"
   },
   {
-    id: "camarão_grelhado",
+    id: "camarao_grelhado",
     nome: "Camarão Grelhado",
     preco: 750,
     unidade: "MT",
     categoria: "pratos",
     disponivel: true,
     icon: "🦐",
+    foto: "assets/images/pratos/camarao-grelhado.jpg",
     desc: "Camarão fresco da costa, grelhado no carvão"
   },
   {
@@ -110,6 +113,7 @@ const PRATOS_PADRAO = [
     categoria: "pratos",
     disponivel: true,
     icon: "🐟",
+    foto: "assets/images/pratos/peixe-corvina.jpg",
     desc: "Corvina grelhada com arroz de coco"
   },
   {
@@ -120,6 +124,7 @@ const PRATOS_PADRAO = [
     categoria: "pratos",
     disponivel: true,
     icon: "🍲",
+    foto: "assets/images/pratos/xima-carne.jpg",
     desc: "Xima tradicional com carne de vaca estufada"
   },
   {
@@ -130,6 +135,7 @@ const PRATOS_PADRAO = [
     categoria: "acompanhamentos",
     disponivel: true,
     icon: "🍚",
+    foto: "assets/images/pratos/arroz-feijao.jpg",
     desc: "Prato simples e caseiro"
   },
   {
@@ -140,6 +146,7 @@ const PRATOS_PADRAO = [
     categoria: "pratos",
     disponivel: true,
     icon: "🌶️",
+    foto: "assets/images/pratos/frango-piri.jpg",
     desc: "Frango picante com batatas fritas"
   },
   {
@@ -150,6 +157,7 @@ const PRATOS_PADRAO = [
     categoria: "pratos",
     disponivel: true,
     icon: "🥩",
+    foto: "assets/images/pratos/bife-molho.jpg",
     desc: "Bife de vaca com molho especial da casa"
   }
 ];
